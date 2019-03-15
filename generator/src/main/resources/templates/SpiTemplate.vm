@@ -1,0 +1,31 @@
+package ${packageName}.contract.${modelName}.spi;
+
+import com.alibaba.fastjson.JSONObject;
+import com.baofoo.framework.crud.common.ResponseEntityDto;
+
+import java.lang.reflect.InvocationTargetException;
+/**
+* Created by ${author} on ${dataTime}.
+* ${tableDesc}对外接口
+*/
+public interface ${domainName}Spi {
+        //插入${tableDesc}
+        public ResponseEntityDto<?> insert${domainName}(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+        //批量插入报表
+        public ResponseEntityDto<?> insert${domainName}List(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+        //更新${tableDesc}
+        public ResponseEntityDto<?> update${domainName}(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+        //查询所有${tableDesc}记录
+        public ResponseEntityDto<?> queryAll${domainName}List(JSONObject param) throws InvocationTargetException, IllegalAccessException ;
+        //通过条件查询${tableDesc}记录(不分页)
+        public ResponseEntityDto<?> query${domainName}ListByParam(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+        //通过条件查询${tableDesc}记录(分页)
+        public ResponseEntityDto<?> queryPage${domainName}ListByParam(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+        //通过ID查询${tableDesc}记录
+        public ResponseEntityDto<?> query${domainName}ById(JSONObject param) throws InvocationTargetException, IllegalAccessException ;
+        //通过Id删除${tableDesc}记录
+        public ResponseEntityDto<?> delete${domainName}ById(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+        //批量删除${tableDesc}记录
+        public ResponseEntityDto<?> deleteBatch${domainName}(JSONObject param) throws InvocationTargetException, IllegalAccessException;
+
+}

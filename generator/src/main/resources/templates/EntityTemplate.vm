@@ -1,0 +1,27 @@
+package ${packageName}.model.${modelName};
+
+import com.baofoo.framework.crud.annotation.AutoId;
+import com.baofoo.framework.crud.entity.BaseEntity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import javax.persistence.Table;
+
+/**
+* Created by ${author}  on ${dataTime}.
+* ${tableDesc}与表字段对应
+*/
+@Data
+@EqualsAndHashCode(callSuper = false)
+@ToString(callSuper = true)
+@Table(name = "${tableName}")
+@AutoId(value=true)
+public class ${domainName}Entity extends BaseEntity{
+
+#foreach($tableField in $tableFieldList)
+        //${tableField.desc}
+        private ${tableField.javaType} ${tableField.domainFieldFirstWordLowerCase};
+#end
+
+}

@@ -1,0 +1,25 @@
+package ${packageName}.contract.${modelName}.dto;
+
+import com.baofoo.framework.crud.entity.BaseEntity;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+/**
+* Created by ${author} on ${dataTime}.
+* ${tableDesc}前端展示用Dto
+*/
+@Data
+@EqualsAndHashCode(callSuper = false)
+@ToString(callSuper = true)
+public class ${domainName}Dto extends BaseEntity {
+
+        private static final long serialVersionUID = 1L;
+
+#foreach($tableField in $tableFieldList)
+        //${tableField.desc}
+        private ${tableField.javaType} ${tableField.domainFieldFirstWordLowerCase};
+#end
+
+}

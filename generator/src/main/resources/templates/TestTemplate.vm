@@ -1,0 +1,56 @@
+package ${packageName}.${model};
+
+import ${packageName}.contract.PageDto;
+import ${packageName}.contract.${model}.dto.${javaDomainName}Dto;
+import ${packageName}.contract.${model}.spi.${javaDomainName}Spi;
+import com.mobanker.framework.contract.dto.ResponseEntityDto;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+* Created by CodeGeneration on ${dataTime}.
+* ${domainDesc}
+*/
+@SuppressWarnings("all")
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:applicationContext.xml", "classpath:mobanker-bigdata-infrastructures-dubbo-consumer.xml"})
+public class ${javaDomainName}ServiceTest {
+
+    @Autowired
+    private ${javaDomainName}Spi ${javaDomainName}Manager;
+
+	@Test
+    public void testAll() throws Exception {
+        ${javaDomainName}Dto dto = new ${javaDomainName}Dto();
+
+        #foreach($data in $itemData.entrySet())
+        //dto.set${data.key}("abcdef");
+        #end
+        //保存
+        ${javaDomainName}Manager.save(dto);
+        List list=new ArrayList<>();
+        list.add(dto);
+        //批量保存 
+        ${javaDomainName}Manager.saveList(list);
+        // 通过rowkey查询，部分字段注意需要按照规则翻转  
+        ResponseEntityDto<${javaDomainName}Dto> temp = ${javaDomainName}Manager.get${javaDomainName}ById("0416651"+"-"+"phone"+"-"+"siginUpAction"+"-"+"1486951826000");
+        System.out.println(temp.toString());
+
+
+        //更新dto 
+        ${javaDomainName}Manager.update(dto);
+
+        //更新list 
+        ${javaDomainName}Manager.updateList(list);
+
+        System.out.println(temp.toString());
+
+    }
+
+}

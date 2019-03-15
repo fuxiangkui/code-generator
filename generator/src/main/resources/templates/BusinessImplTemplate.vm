@@ -1,0 +1,22 @@
+package ${packageName}.business.${modelName}.impl;
+
+import com.baofoo.framework.crud.bussiness.impls.BaseBussinessImpl;
+import ${packageName}.business.${modelName}.${domainName}Business;
+import ${packageName}.dao.${modelName}.${domainName}Dao;
+import ${packageName}.model.${modelName}.${domainName}Entity;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
+/**
+* Created by ${author}  on ${dataTime}.
+* ${tableDesc}业务实现
+*/
+@Component("${domainFirstWordLowerCase}Business")
+public class ${domainName}BusinessImpl extends BaseBussinessImpl<${domainName}Entity> implements ${domainName}Business {
+
+        //引入Dao
+        @Resource
+        private ${domainName}Dao ${domainFirstWordLowerCase}Dao;
+
+}

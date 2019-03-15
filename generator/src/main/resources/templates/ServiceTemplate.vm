@@ -1,0 +1,10 @@
+package ${packageName}.service.${modelName};
+
+import ${packageName}.contract.${modelName}.spi.${domainName}Spi;
+
+/**
+* Created by ${author}  on ${dataTime}.
+* ${tableDesc}服务接口
+*/
+public interface ${domainName}Service extends ${domainName}Spi {
+}
